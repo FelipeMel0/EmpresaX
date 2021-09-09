@@ -11,29 +11,23 @@ if (isset($_GET["buscarFuncionario"])) {
 }
 
 if (
-    !empty($_GET["first_name"]) && !empty($_GET["last_name"]) &&
-    !empty($_GET["email"]) && !empty($_GET["gender"]) &&
-    !empty($_GET["ip_address"]) && !empty($_GET["country"])
-    && !empty($_GET["department"])
+    !empty($_POST["first_name"]) && !empty($_POST["last_name"]) &&
+    !empty($_POST["email"]) && !empty($_POST["gender"]) &&
+    !empty($_POST["ip_address"]) && !empty($_POST["country"])
+    && !empty($_POST["department"])
 ) {
     adicionarFuncionario([
-        "first_name" => $_GET["first_name"],
-        "last_name" => $_GET["last_name"],
-        "email" => $_GET["email"],
-        "gender" => $_GET["gender"],
-        "ip_address" => $_GET["ip_address"],
-        "country" => $_GET["country"],
-        "department" => $_GET["department"],
+        "first_name" => $_POST["first_name"],
+        "last_name" => $_POST["last_name"],
+        "email" => $_POST["email"],
+        "gender" => $_POST["gender"],
+        "ip_address" => $_POST["ip_address"],
+        "country" => $_POST["country"],
+        "department" => $_POST["department"],
     ]);
 
     header('location:' . dirname($_SERVER['PHP_SELF']));
 }
-
-// $values = json_encode($_POST);
-// file_put_contents('nome_e_path_do_arquivo.ext', $values, FILE_APPEND);
-
-// adicionarFuncionario($funcionarios);
-
 
 ?>
 
@@ -99,7 +93,7 @@ if (
         <!-- <div id="bg"></div> -->
         <div class="modal">
             <h2>Adição de novo funcionário</h2>
-            <form>
+            <form action="acoes.php" method="POST">
                 <input type="text" name="first_name" required placeholder="Primeiro nome">
                 <input type="text" name="last_name" required placeholder="Último nome">
                 <input type="text" name="email" required placeholder="Email">

@@ -144,6 +144,8 @@ table td, th {
 
 #container__modal .modal form select {
   color: #868686;
+  max-width: 427px;
+  margin-bottom: 15px;
 }
 
 #container__modal .modal form input:focus, #container__modal .modal form select:focus {
