@@ -49,7 +49,7 @@ if (
 
     <form>
         <label for="buscarFuncionario">Digite o nome:</label>
-        <input type="text" placeholder="Digite o funcionário" name="buscarFuncionario" value="<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>">
+        <input type="text" required placeholder="Digite o funcionário" name="buscarFuncionario" value="<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>">
         <button class="buttonBuscar">Buscar</button>
 
     </form>
@@ -92,7 +92,7 @@ if (
         <p>+</p>
     </div>
     <div id="container__modal">
-        <!-- <div id="bg"></div> -->
+        <div id="bg"></div>
         <div class="modal">
             <h2>Adição de novo funcionário</h2>
             <form>
@@ -116,12 +116,15 @@ if (
     </div>
 
     <div id="modalExcluir">
-        <h2>Atenção</h2>
-        <form>
-            <h3>Você tem certeza que quer destruir a vida desse jovem?</h3>
-            <button id="buttonSim">Quero. Sou maluco.</button>
-            <button id="buttonNao">Pensando bem... acho que não</button>
-        </form>
+        <div id="bg"></div>
+        <div class="modal">
+            <h2>Atenção</h2>
+            <form>
+                <h3>Você tem certeza que quer destruir a vida desse jovem?</h3>
+                <button id="buttonSim">Quero. Sou maluco.</button>
+                <button id="buttonNao">Pensando bem... acho que não.</button>
+            </form>
+        </div>
     </div>
 </body>
 
