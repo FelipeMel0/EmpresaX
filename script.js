@@ -27,10 +27,21 @@ function closeNewModal() {
 }
 
 
-function abrirModalExcluir() {
-  modalExcluir.style.display = 'flex';
-}
+// function abrirModalExcluir() {
+//   modalExcluir.style.display = 'flex';
+// }
 
-function fecharModalExcluir() {
-  modalExcluir.style.display = 'none';
+// function fecharModalExcluir() {
+//   modalExcluir.style.display = 'none';
+// }
+
+function deletar(idFuncionario){
+  //pede confirmação ao usuário
+  let confirmacao =  confirm("Você tem certeza que quer destruir a vida desse jovem?");
+
+  //se confirmar, redireciona para o arquivo de ação
+  if(confirmacao){
+    window.location = "acaoDeletar.php?id=" + idFuncionario;
+  }
+
 }

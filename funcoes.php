@@ -25,26 +25,7 @@ function buscarFuncionario($funcionarios, $nome)
     }
     return $funcionarioFiltro;
 }
-// function buscarFuncionario($funcionarios, $nome)
-// {
-//     $funcionarioFiltro = [];
-//     foreach ($funcionarios as $funcionario) {
 
-//         // $nome = $_GET["buscarFuncionario"];
-
-//         $pos = strpos($funcionario->first_name, $nome);
-
-
-//         if ($pos === true) {
-
-//             $funcionarioFiltro[] = $funcionario;
-//         }
-//         // else{
-//         //     echo "Monitor Asus novinho";
-//         // }
-//     }
-//     return $funcionarioFiltro;
-// }
 function adicionarFuncionario(array $funcionario)
 {
     $funcionarios = lerArquivo('empresaX.json');
@@ -54,12 +35,20 @@ function adicionarFuncionario(array $funcionario)
     $json = json_encode($funcionarios);
     file_put_contents('empresaX.json', $json);
 }
-// function adicionarFuncionario($nomeArquivo, $novoFuncionario)
-// {
-//     $funcionarios = lerArquivo($nomeArquivo);
-//     $id = count($funcionarios) + 1;
-//     $funcionario['id'] = $id;
-//     $funcionarios[] = $novoFuncionario;
-//     $json = json_encode($funcionarios);
-//     file_put_contents('empresaX.json', $json);
-// }
+
+function deletarFuncionario($nomeArquivo, $idFuncionario){
+
+    $funcionarios = lerArquivo($nomeArquivo);
+
+    foreach($funcionarios as $chave => $funcionario){
+        if($funcionario->id == $idFuncionario){
+            unset($funcionarios[$chave]);
+        }
+    }
+
+    $json = json_encode(array_values($funcionarios));
+
+    file_put_contents($nomeArquivo, $json);
+
+}
+

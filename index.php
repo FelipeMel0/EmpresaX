@@ -80,7 +80,7 @@ if (
                 <td><?= $funcionario->country ?></td>
                 <td><?= $funcionario->department ?></td>
                 <td>
-                    <button id="excluir" onclick="abrirModalExcluir()">Aniquilar</button>
+                    <button id="excluir" onclick="deletar(<?= $funcionario->id ?>)">Aniquilar</button>
                     <button id="editar">Metamorfosear</button>
                 </td>
             </tr>
