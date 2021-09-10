@@ -50,7 +50,7 @@ if (
     <form>
         <label for="buscarFuncionario">Digite o nome:</label>
         <input type="text" placeholder="Digite o funcionário" name="buscarFuncionario" value="<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>">
-        <button>Buscar</button>
+        <button class="buttonBuscar">Buscar</button>
 
     </form>
     <table border="1">
@@ -63,6 +63,7 @@ if (
             <th>Endereço IP</th>
             <th>País</th>
             <th>Departamento</th>
+            <th>Excluir?</th>
         </tr>
 
         <?php
@@ -78,6 +79,7 @@ if (
                 <td><?= $funcionario->ip_address ?></td>
                 <td><?= $funcionario->country ?></td>
                 <td><?= $funcionario->department ?></td>
+                <td ><button id="excluir">Aniquilar</button></td>
             </tr>
 
         <?php
@@ -85,6 +87,7 @@ if (
         ?>
 
     </table>
+
     <div id="add__new">
         <p>+</p>
     </div>
@@ -110,6 +113,15 @@ if (
                 </div>
             </form>
         </div>
+    </div>
+
+    <div id="modalExcluir">
+        <h2>Atenção</h2>
+        <form>
+            <h3>Você tem certeza que quer destruir a vida desse jovem?</h3>
+            <button id="buttonSim">Quero. Sou maluco.</button>
+            <button id="buttonNao">Pensando bem... acho que não</button>
+        </form>
     </div>
 </body>
 

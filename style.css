@@ -21,7 +21,7 @@ input {
   margin-bottom: 15px;
 }
 
-button {
+.buttonBuscar {
   width: 8%;
   padding: 5px;
   background-color: rgb(255, 0, 191);
@@ -176,4 +176,15 @@ table td, th {
 
 #send {
   background-color: deeppink;
+}
+
+#modalExcluir{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
