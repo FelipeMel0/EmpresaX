@@ -29,15 +29,28 @@ input {
   border-radius: 5px;
   color: white;
   border: 1px solid rgb(180, 29, 122);
+  cursor: pointer;
 }
 
-#excluir{
+#excluir {
   background-color: rgb(255, 0, 191);
   border-radius: 5px;
   color: white;
   border: 1px solid rgb(180, 29, 122);
   width: 100px;
   height: 25px;
+  cursor: pointer;
+}
+
+#editar{
+  background-color: rgb(255, 0, 191);
+  border-radius: 5px;
+  color: white;
+  border: 1px solid rgb(180, 29, 122);
+  width: 100px;
+  height: 25px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 section {
@@ -67,7 +80,7 @@ table {
 }
 
 table tr:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   background-color: rgb(109, 94, 248);
 }
 
@@ -188,7 +201,7 @@ table td, th {
   background-color: deeppink;
 }
 
-#modalExcluir{
+#modalExcluir {
   position: fixed;
   top: 0;
   left: 0;
@@ -199,7 +212,7 @@ table td, th {
   justify-content: center;
 }
 
-#modalExcluir #bg{
+#modalExcluir #bg {
   position: relative;
   width: 100%;
   height: 100%;
@@ -207,7 +220,7 @@ table td, th {
   display: flex;
 }
 
-#modalExcluir .modal{
+#modalExcluir .modal {
   background-color: white;
   width: 600px;
   position: absolute;
@@ -223,7 +236,7 @@ table td, th {
   box-shadow: 1px 5px 30px 10px rgb(22, 1, 80);
 }
 
-#modalExcluir button{
+#modalExcluir button {
   height: 50px;
   flex: 1;
   border: 1px solid rgb(247, 93, 188);

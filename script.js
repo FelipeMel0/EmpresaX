@@ -27,10 +27,10 @@ function closeNewModal() {
 }
 
 
-function abrirModalExcluir(){
+function abrirModalExcluir() {
   modalExcluir.style.display = 'flex';
 }
 
-function fecharModalExcluir(){
+function fecharModalExcluir() {
   modalExcluir.style.display = 'none';
 }
