@@ -1,47 +1,43 @@
-const newButton = document.getElementById('add__new');
-const cancelButton = document.getElementById('cancel');
-const sendButton = document.getElementById('send');
-const modal = document.getElementById('container__modal');
-const modalBackground = document.getElementById('bg');
+const addNewEmployee = document.getElementById("add_new")
+const cancelAddEmployee = document.getElementById("cancel")
+const sendButton = document.getElementById("send")
 
-const buttonSim = document.getElementById('buttonSim');
-const buttonNao = document.getElementById('buttonNao');
-const modalExcluir = document.getElementById('modalExcluir');
-const buttonExcluir = document.getElementById('excluir');
+const add_modal = document.getElementById("add_container_modal")
+const add_modalBackground = document.getElementById("add_bg")
 
-newButton.addEventListener('click', openNewModal);
-cancelButton.addEventListener('click', closeNewModal);
-// modalBackground.addEventListener('click', closeNewModal);
+const delete_modal = document.getElementById("delete_container_modal")
+const delete_modalBackground = document.getElementById("delete_bg")
+const deleteEmployee = document.getElementById("delete")
+const cancelDeleteEmployee = document.getElementById("cancelDelete")
 
+addNewEmployee.addEventListener("click", openAddModal)
+cancelAddEmployee.addEventListener("click", closeAddModal)
+add_modalBackground.addEventListener("click", closeAddModal)
 
-buttonExcluir.addEventListener('click', abrirModalExcluir);
-buttonNao.addEventListener('click', fecharModalExcluir);
+// deleteEmployee.addEventListener("click", openDeleteModal)
+// cancelDeleteEmployee.addEventListener("click", closeDeleteModal)
+// delete_modalBackground.addEventListener("click", closeDeleteModal)
 
-
-function openNewModal() {
-  modal.style.display = 'flex';
+function openAddModal() {
+    add_modal.style.display = "flex"
 }
 
-function closeNewModal() {
-  modal.style.display = 'none';
+function closeAddModal() {
+    add_modal.style.display = "none"
 }
 
-
-// function abrirModalExcluir() {
-//   modalExcluir.style.display = 'flex';
+// function openDeleteModal() {
+//     delete_modal.style.display = "flex"
 // }
 
-// function fecharModalExcluir() {
-//   modalExcluir.style.display = 'none';
+// function closeDeleteModal() {
+//     delete_modal.style.display = "none"
 // }
 
-function deletar(idFuncionario){
-  //pede confirmação ao usuário
-  let confirmacao =  confirm("Você tem certeza que quer destruir a vida desse jovem?");
+function deletar(idFuncionario) {
+    let confirmacao = confirm("Deseja deletar o funcionário?")
 
-  //se confirmar, redireciona para o arquivo de ação
-  if(confirmacao){
-    window.location = "acaoDeletar.php?id=" + idFuncionario;
-  }
-
+    if (confirmacao) {
+        window.location = "acaoDeletar.php?id=" + idFuncionario
+    }
 }

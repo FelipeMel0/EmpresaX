@@ -2,7 +2,7 @@
 
 require("./funcoes.php");
 
-$funcionarios = lerArquivo("empresaX.json");
+$funcionarios = lerArquivo("./empresaX.json");
 
 $count = count($funcionarios);
 
@@ -26,86 +26,80 @@ if (
         "department" => $_GET["department"],
     ]);
 
-    header('location:' . dirname($_SERVER['PHP_SELF']));
+    header("location: index.php");
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a757f2d5f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Empresa X</title>
+    <script src="./script.js" defer></script>
+    <title>Situação Aprendizagem</title>
 </head>
 
 <body>
-
     <h1>Funcionários da empresa X</h1>
-    <p class="subtitulo">A empresa conta com <?= $count ?> funcionários</p>
-
-    <form>
-        <label for="buscarFuncionario">Digite o nome:</label>
-        <input type="text" required placeholder="Digite o funcionário" name="buscarFuncionario" value="<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>">
-        <button class="buttonBuscar">Buscar</button>
-
-    </form>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>E-mail</th>
-            <th>Sexo</th>
-            <th>Endereço IP</th>
-            <th>País</th>
-            <th>Departamento</th>
-            <th>Ações</th>
-        </tr>
-
-        <?php
-        foreach ($funcionarios as $funcionario) :
-        ?>
-
+    <p id="subtitle">A empresa conta com <?= $count ?> funcionários</p>
+    <section>
+        <form>
+            <input type="text" required placeholder="Buscar funcionário..." name="buscarFuncionario" id="buscarFuncionario" value='<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>' />
+            <button id="buscar">Buscar</button>
+        </form>
+        <table border="1">
             <tr>
-                <td><?= $funcionario->id ?></td>
-                <td><?= $funcionario->first_name ?></td>
-                <td><?= $funcionario->last_name ?></td>
-                <td><?= $funcionario->email ?></td>
-                <td><?= $funcionario->gender ?></td>
-                <td><?= $funcionario->ip_address ?></td>
-                <td><?= $funcionario->country ?></td>
-                <td><?= $funcionario->department ?></td>
-                <td>
-                    <button id="excluir" onclick="deletar(<?= $funcionario->id ?>)">Aniquilar</button>
-                    <button id="editar">Metamorfosear</button>
-                </td>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>E-mail</th>
+                <th>Sexo</th>
+                <th>Endereço IP</th>
+                <th>País</th>
+                <th>Departamento</th>
+                <th>Ação</th>
             </tr>
+            <?php foreach ($funcionarios as $funcionario) : ?>
+                <tr>
+                    <td><?= $funcionario->id ?></td>
+                    <td><?= $funcionario->first_name ?></td>
+                    <td><?= $funcionario->last_name ?></td>
+                    <td><?= $funcionario->email ?></td>
+                    <td><?= $funcionario->gender ?></td>
+                    <td><?= $funcionario->ip_address ?></td>
+                    <td><?= $funcionario->country ?></td>
+                    <td><?= $funcionario->department ?></td>
+                    <td>
+                        <button id="edit"><i class="fas fa-edit"></i></button>
+                        <button id="delete" onclick="deletar(<?= $funcionario->id ?>)"><i class="fas fa-trash-alt"></i></button>
+                        <!-- <button id="delete" onclick="openDeleteModal()">Deletar</button> -->
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </section>
 
-        <?php
-        endforeach;
-        ?>
-
-    </table>
-
-    <div id="add__new">
+    <div id="add_new">
         <p>+</p>
     </div>
-    <div id="container__modal">
-        <div id="bg"></div>
+
+    <div id="add_container_modal">
+        <div id="add_bg"></div>
         <div class="modal">
-            <h2>Adição de novo funcionário</h2>
+            <h2>Adicione um novo funcionário</h2>
             <form>
-                <input type="text" name="first_name" required placeholder="Primeiro nome">
-                <input type="text" name="last_name" required placeholder="Último nome">
-                <input type="text" name="email" required placeholder="Email">
+                <input type="text" name="first_name" required placeholder="Nome">
+                <input type="text" name="last_name" required placeholder="Sobrenome">
+                <input type="text" name="email" required placeholder="E-mail">
                 <select name="gender" id="gender" required placeholder="Sexo">
+                    <option value="" selected disabled>Selecione</option>
                     <option value="Male">Masculino</option>
                     <option value="Female">Feminino</option>
-                    <option value="WarMachine">Máquina de Combate</option>
                 </select>
                 <input type="text" name="ip_address" required placeholder="Endereço IP">
                 <input type="text" name="country" required placeholder="País">
@@ -118,14 +112,15 @@ if (
         </div>
     </div>
 
-    <div id="modalExcluir">
-        <div id="bg"></div>
+    <div id="delete_container_modal">
+        <div id="delete_bg"></div>
         <div class="modal">
-            <h2>Atenção</h2>
+            <h2>Você deseja mesmo fazer isso?</h2>
             <form>
-                <h3>Você tem certeza que quer destruir a vida desse jovem?</h3>
-                <button id="buttonSim">Quero. Sou maluco.</button>
-                <button id="buttonNao">Pensando bem... acho que não.</button>
+                <div class="buttons">
+                    <button id="cancelDelete" type="button">Cancelar</button>
+                    <button id="confirmDelete">Deletar</button>
+                </div>
             </form>
         </div>
     </div>
