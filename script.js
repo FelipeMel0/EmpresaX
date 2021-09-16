@@ -26,14 +26,6 @@ function closeAddModal() {
     add_modal.style.display = "none"
 }
 
-// function openDeleteModal() {
-//     delete_modal.style.display = "flex"
-// }
-
-// function closeDeleteModal() {
-//     delete_modal.style.display = "none"
-// }
-
 function deletar(idFuncionario) {
     let confirmacao = confirm("Deseja deletar o funcionário?")
 
@@ -41,3 +33,10 @@ function deletar(idFuncionario) {
         window.location = "acaoDeletar.php?id=" + idFuncionario
     }
 }
+
+function editar(idFuncionario){
+
+    window.location = "editar.php?id=" + idFuncionario
+
+}
+

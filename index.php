@@ -41,7 +41,7 @@ if (
     <script src="https://kit.fontawesome.com/a757f2d5f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
-    <title>Situação Aprendizagem</title>
+    <title>Empresa X</title>
 </head>
 
 <body>
@@ -75,7 +75,7 @@ if (
                     <td><?= $funcionario->country ?></td>
                     <td><?= $funcionario->department ?></td>
                     <td>
-                        <button id="edit"><i class="fas fa-edit"></i></button>
+                        <button id="edit" onclick="editar(<?= $funcionario->id ?>)"><i class="fas fa-edit"></i></button>
                         <button id="delete" onclick="deletar(<?= $funcionario->id ?>)"><i class="fas fa-trash-alt"></i></button>
                         <!-- <button id="delete" onclick="openDeleteModal()">Deletar</button> -->
                     </td>
