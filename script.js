@@ -34,9 +34,8 @@ function deletar(idFuncionario) {
     }
 }
 
-function editar(idFuncionario){
+function editar(idFuncionario) {
 
     window.location = "editar.php?id=" + idFuncionario
 
 }
-
