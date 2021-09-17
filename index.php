@@ -77,7 +77,6 @@ if (
                     <td>
                         <button id="edit" onclick="editar(<?= $funcionario->id ?>)"><i class="fas fa-edit"></i></button>
                         <button id="delete" onclick="deletar(<?= $funcionario->id ?>)"><i class="fas fa-trash-alt"></i></button>
-                        <!-- <button id="delete" onclick="openDeleteModal()">Deletar</button> -->
                     </td>
                 </tr>
             <?php endforeach; ?>
