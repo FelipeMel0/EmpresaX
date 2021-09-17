@@ -124,7 +124,7 @@ button:hover {
     color: white;
 }
 
-#add_container_modal, #delete_container_modal {
+#add_container_modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -135,14 +135,14 @@ button:hover {
     justify-content: center;
 }
 
-#add_container_modal #add_bg, #delete_container_modal #delete_bg {
+#add_container_modal #add_bg {
     position: relative;
     width: 100%;
     height: 100%;
     background-color: #12121233;
 }
 
-#add_container_modal .modal, #delete_container_modal .modal {
+#add_container_modal .modal {
     background-color: rgb(255, 255, 255);
     width: 600px;
     position: absolute;
@@ -156,7 +156,7 @@ button:hover {
     gap: 24px;
 }
 
-#add_container_modal .modal form, #delete_container_modal .modal form {
+#add_container_modal .modal form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -183,13 +183,13 @@ button:hover {
     padding: 0 11px;
 }
 
-#add_container_modal .modal form .buttons, #delete_container_modal .modal form .buttons {
+#add_container_modal .modal form .buttons {
     display: flex;
     width: 100%;
     gap: 12px;
 }
 
-#add_container_modal .modal form button, #delete_container_modal .modal form button {
+#add_container_modal .modal form button {
     height: 50px;
     flex: 1;
     border: none;
@@ -197,14 +197,6 @@ button:hover {
     color: white;
     font-weight: bold;
     cursor: pointer;
-}
-
-#cancel, #cancelDelete {
-    background-color: rgb(110, 1, 105);
-}
-
-#send, #confirmDelete {
-    background-color: rgb(255, 32, 225)
 }
 
 .container-form {

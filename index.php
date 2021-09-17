@@ -112,18 +112,6 @@ if (
         </div>
     </div>
 
-    <div id="delete_container_modal">
-        <div id="delete_bg"></div>
-        <div class="modal">
-            <h2>Você deseja mesmo fazer isso?</h2>
-            <form>
-                <div class="buttons">
-                    <button id="cancelDelete" type="button">Cancelar</button>
-                    <button id="confirmDelete">Deletar</button>
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 
 </html>
