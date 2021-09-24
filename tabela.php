@@ -4,6 +4,8 @@ session_start();
 
 require("./funcoes.php");
 
+verificarLogin();
+
 $funcionarios = lerArquivo("./empresaX.json");
 
 $count = count($funcionarios);
