@@ -94,7 +94,7 @@ function realizarLogin($usuario, $senha, $dados)
             $_SESSION["id"] = session_id();
             $_SESSION["dataHora"] = date('d/m/Y - h:i:s');
 
-            header('location: index.php');
+            header('location: tabela.php');
             exit;
         } 
         else {

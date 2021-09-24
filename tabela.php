@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require("./funcoes.php");
 
 $funcionarios = lerArquivo("./empresaX.json");
@@ -26,7 +28,7 @@ if (
         "department" => $_GET["department"],
     ]);
 
-    header("location: index.php");
+    header("location: tabela.php");
 }
 
 ?>
@@ -40,13 +42,23 @@ if (
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a757f2d5f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="./script.js" defer></script>
     <title>Empresa X</title>
 </head>
 
 <body>
+    <div class="usuarioLogado">
+        <p>Usuário: <?= $_SESSION["usuario"] ?></p>
+        <p>Id da sessão: <?= $_SESSION["id"] ?></p>
+        <p>Login efetuado em: <?= $_SESSION['dataHora'] ?></p>
+
+        <!-- <button href="processa_login.php?logout=true">TESTE</button> -->
+        <a class="botaoLogout" href="processa_login.php?logout=true">Logout</a>
+    </div>
     <h1>Funcionários da empresa X</h1>
     <p id="subtitle">A empresa conta com <?= $count ?> funcionários</p>
+
     <section>
         <form>
             <input type="text" required placeholder="Buscar funcionário..." name="buscarFuncionario" id="buscarFuncionario" value='<?= isset($_GET["buscarFuncionario"]) ? $_GET["buscarFuncionario"] : "" ?>' />

@@ -12,8 +12,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    width: 100vw;
 }
 
-button{
+.btn-primary {
     width: 250px;
+    background-color: #ff008c;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.btn-primary:hover {
+    background-color: #86014a;
 }

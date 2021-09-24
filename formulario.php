@@ -22,7 +22,7 @@
     
         <div class="container-form">
     
-                <form action="index.php" method="POST">
+                <form action="processa_login.php" method="POST">
                     
                     <div class="form-group">
                         <label for="txt_usuario">USUÁRIO</label>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group">
-                      <button class="btn btn-primary" type="submit">LOGAR</button>
+                      <button class="btn-primary" type="submit">LOGAR</button>
                     </div>
                         
                 </form>
